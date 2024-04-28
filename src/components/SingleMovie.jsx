@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToFavorites } from '../data/favoritesSlice';
 
 
 const SingleMovie = () => {
@@ -10,7 +11,7 @@ const SingleMovie = () => {
   const {id} = useParams();
   
   const {movies} = useSelector((state) => state.movies);
-  
+  const dispatch = useDispatch()
   const moviesList = movies.docs;
   const selectedMovie = moviesList?.find((movie) => {
     console.log(movie.id)
@@ -19,7 +20,12 @@ const SingleMovie = () => {
   });
   console.log(selectedMovie)
 
+  const handleAddToFavorites = (movie) => {
+    dispatch(addToFavorites(movie))
+  }
   
+  const {favorites} = useSelector((state) => state.favorites)
+  console.log(favorites)
 
   return (
     <>
@@ -51,6 +57,7 @@ const SingleMovie = () => {
                   </li>
                 ))}
               </ul>
+              <button onClick = {() => handleAddToFavorites(selectedMovie)}>Добавить в избранное</button>
             </li>
           </ul>
         </div>
