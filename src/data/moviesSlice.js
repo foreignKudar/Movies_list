@@ -9,7 +9,7 @@ export const getMovies = createAsyncThunk(
      const response = await axios.get('https://api.kinopoisk.dev/v1.4/movie?page=1&limit=10&year=2024', {
         headers: {
             accept: 'application/json',
-            'X-API-KEY': 'MBMVEA3-DW345CE-H7GQ33H-SQJC3Y4'
+            'X-API-KEY': 'N7E2PR8-3KN4QX2-QTMN3W2-M4KDG0H'
         }, })
         return response.data
 
