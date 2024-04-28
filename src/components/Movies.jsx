@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
+import { Card, CardHeader, CardMedia, CardContent, Typography } from '@mui/material'
+
 import { getMovies } from '../data/moviesSlice'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -31,22 +33,33 @@ const Movies = ({title}) => {
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mx-7 '>
         {moviesList?.map(({ id, poster: { previewUrl }, name, year, rating: { kp } }) => (
             <Link to={`/movies/${id}`} key={id}>
-            <div>
-                <div className='flex flex-col p-4 bg-white rounded shadow-md'>
-                    <div className='w-full h-auto bg-cover'>
-                        <img src={previewUrl} className='h-full w-full object-scale-down' alt="" />
+                <Card >
+                    <div>
+                         <div className='flex flex-col p-4 bg-white rounded shadow-md'>
+                            {/* <div className='w-full h-auto bg-cover'>
+                                <img src={previewUrl} className='h-full w-full object-scale-down' alt="" />
+                            </div>  */}
+                            <CardMedia
+                                component="img"
+                                image={previewUrl}
+                                alt="Paella dish"
+                            />
+                            <CardHeader className='text-lg font-bold' title={name} />
+                            <CardContent>
+                                <Typography variant="body2" color="text.secondary">
+                                    {year}
+                                </Typography>
+                            </CardContent>
+                                
+                                
+                                <div className='flex items-center'>
+                                <AiFillStar className='text-yellow-500'/>
+                                <div className='text-sm'>{kp}</div>
+                            </div>
+                        </div>
                     </div>
-                    
-
-                    
-                    <h2 className='text-lg font-bold'>{name}</h2>
-                    <h2 className='text-sm'>{year}</h2>
-                    <div className='flex items-center'>
-                    <AiFillStar className='text-yellow-500'/>
-                    <div className='text-sm'>{kp}</div>
-                    </div>
-                </div>
-            </div>
+                </Card>
+            
             </Link>
         ))}
 </div>
