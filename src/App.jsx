@@ -19,15 +19,15 @@ function App() {
 
 
   return (
-    <div className='bg-gradient-to-tr from-red-800 to-gray-900 h-auto'>
+    <div className='bg-gradient-to-tr from-red-800 to-gray-900 h-fit'>
       <Header/>
 
-      {/* {/* <Movies title="Новинки за 2024 год"/> */}
-      {/* <Movies title="Детектив"/> */}
+      
       <Routes>
         <Route path="/" element={<Movies title={"Новинки 2024 года"}/>} />
         <Route exact path='/movies/:id' element={<SingleMovie/>}/>
       </Routes>
+      
       <Footer/>
       
     </div>

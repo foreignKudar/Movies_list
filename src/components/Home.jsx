@@ -2,7 +2,7 @@ import React from 'react'
 
 const Home = () => {
   return (
-    <div className='mx-7 mt-15 flex justify-center items-center w-auto'>
+    <div className='mx-7 mt-15 mb-16 flex justify-center items-center w-auto'>
         <h1 className='mr-5 text-9xl text-gray-100 self-start'>Movie World</h1>
         <p className='max-w-5xl text-gray-300'>Наш сайт предоставляет доступ к огромному каталогу фильмов различных жанров и стилей. Здесь вы можете найти новинки кинематографа, классические фильмы,
              артхаусные произведения, документальные ленты и многое другое. Мы постоянно обновляем нашу коллекцию, чтобы удовлетворить разнообразные вкусы наших пользователей.<br></br>

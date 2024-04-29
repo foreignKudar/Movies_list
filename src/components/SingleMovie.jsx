@@ -30,37 +30,34 @@ const SingleMovie = () => {
   return (
     <>
       {selectedMovie && (
-        <div className='flex justify-center mb-12'>
-        <div
-          className='w-96 h-96 relative mx-auto rounded-lg overflow-hidden shadow-md'
-          style={{ backgroundImage: `url(${selectedMovie?.poster?.url})` }}
-        />
-        <div className='ml-4'>
-          <h2 className='text-2xl font-bold mb-2'>{selectedMovie?.name}</h2>
-          <p className='text-gray-600'>{selectedMovie?.description}</p>
-          <ul className='flex flex-wrap mb-4'>
-            <li className='mr-4'>
-              <span className='text-gray-600'>Year:</span> {selectedMovie?.year}
-            </li>
-            <li className='mr-4'>
-              <span className='text-gray-600'>Rating:</span> {selectedMovie?.rating?.kp}
-            </li>
-            <li className='mr-4'>
-              <span className='text-gray-600'>Age Rating:</span> {selectedMovie?.ageRating}
-            </li>
-            <li>
-              <span className='text-gray-600'>Genres:</span>
-              <ul className='flex flex-wrap'>
-                {selectedMovie?.genres?.map((genre) => (
-                  <li key={genre.id} className='mr-2'>
-                    {genre.name}
-                  </li>
-                ))}
-              </ul>
-              <button onClick = {() => handleAddToFavorites(selectedMovie)}>Добавить в избранное</button>
-            </li>
-          </ul>
-        </div>
+        <div className="max-w-4xl h-max mx-auto bg-white rounded-lg shadow-md overflow-hidden flex mb-14">
+          <div className="h-48 w-full bg-contain bg-no-repeat bg-center" style={{ backgroundImage: `url(${selectedMovie?.poster?.url})` }} />
+          <div className="p-4">
+            <h2 className="text-lg font-bold mb-2">{selectedMovie?.name}</h2>
+            <p className="text-gray-600">{selectedMovie?.description}</p>
+            <ul className="flex flex-wrap mb-4">
+              <li className="mr-4">
+                <span className="text-gray-600">Год:</span> {selectedMovie?.year}
+              </li>
+              <li className="mr-4">
+                <span className="text-gray-600">Рейтинг:</span> {selectedMovie?.rating?.kp}
+              </li>
+              <li className="mr-4">
+                <span className="text-gray-600">Возрастное ограничение:</span> {selectedMovie?.ageRating}
+              </li>
+              <li>
+                <span className="text-gray-600 flex">Жанры:{selectedMovie?.genres?.map((genre) => (
+                    <li key={genre.id} className="mr-2">
+                      {genre.name}
+                    </li>
+                  ))}</span>
+                <ul className="flex flex-wrap">
+
+                </ul>
+              </li>
+            </ul>
+            <button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleAddToFavorites(selectedMovie)}>Добавить в избранное</button>
+          </div>
       </div>
       )}
         
