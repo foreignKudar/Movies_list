@@ -13,6 +13,7 @@ const SingleMovie = () => {
   const {movies} = useSelector((state) => state.movies);
   const dispatch = useDispatch()
   const moviesList = movies.docs;
+  
   const selectedMovie = moviesList?.find((movie) => {
     console.log(movie.id)
     console.log(id); 
